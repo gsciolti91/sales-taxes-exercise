@@ -7,7 +7,8 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
     CurrencyValueTest.class,
     ItemsTest.class,
-    ImportedItemsTest.class
+    ImportedItemsTest.class,
+    ShoppingBasketTest.class
 })
 public class TestSuite {
 }

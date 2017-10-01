@@ -22,8 +22,8 @@ public class ImportedItemsTest {
 
         chocolateBar.setImported(true);
 
-        Assert.assertEquals(new CurrencyValue(0.04), chocolateBar.getTaxesAmount());
-        Assert.assertEquals(new CurrencyValue(.89), chocolateBar.getTaxedPrice());
+        Assert.assertEquals(new CurrencyValue(0.05), chocolateBar.getTaxesAmount());
+        Assert.assertEquals(new CurrencyValue(.90), chocolateBar.getTaxedPrice());
     }
 
     @Test
@@ -33,8 +33,8 @@ public class ImportedItemsTest {
 
         chocolatesBox.setImported(true);
 
-        Assert.assertEquals(new CurrencyValue(0.54), chocolatesBox.getTaxesAmount());
-        Assert.assertEquals(new CurrencyValue(11.34), chocolatesBox.getTaxedPrice());
+        Assert.assertEquals(new CurrencyValue(0.55), chocolatesBox.getTaxesAmount());
+        Assert.assertEquals(new CurrencyValue(11.35), chocolatesBox.getTaxedPrice());
     }
 
     @Test
@@ -44,8 +44,8 @@ public class ImportedItemsTest {
 
         headachePillsBox.setImported(true);
 
-        Assert.assertEquals(new CurrencyValue(0.47), headachePillsBox.getTaxesAmount());
-        Assert.assertEquals(new CurrencyValue(9.92), headachePillsBox.getTaxedPrice());
+        Assert.assertEquals(new CurrencyValue(0.50), headachePillsBox.getTaxesAmount());
+        Assert.assertEquals(new CurrencyValue(9.95), headachePillsBox.getTaxedPrice());
     }
 
     @Test
@@ -55,8 +55,8 @@ public class ImportedItemsTest {
 
         book.setImported(true);
 
-        Assert.assertEquals(new CurrencyValue(1.17), book.getTaxesAmount());
-        Assert.assertEquals(new CurrencyValue(24.66), book.getTaxedPrice());
+        Assert.assertEquals(new CurrencyValue(1.20), book.getTaxesAmount());
+        Assert.assertEquals(new CurrencyValue(24.69), book.getTaxedPrice());
     }
 
     @Test
@@ -66,8 +66,8 @@ public class ImportedItemsTest {
 
         perfume.setImported(true);
 
-        Assert.assertEquals(new CurrencyValue(4.49), perfume.getTaxesAmount());
-        Assert.assertEquals(new CurrencyValue(34.39), perfume.getTaxedPrice());
+        Assert.assertEquals(new CurrencyValue(4.50), perfume.getTaxesAmount());
+        Assert.assertEquals(new CurrencyValue(34.40), perfume.getTaxedPrice());
     }
 
     @Test

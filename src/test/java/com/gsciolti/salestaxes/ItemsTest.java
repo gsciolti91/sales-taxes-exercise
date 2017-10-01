@@ -36,7 +36,7 @@ public class ItemsTest {
     @Test
     public void testHeadachePillsBoxTax() {
 
-        HeadachePillsBox headachePillsBox = new HeadachePillsBox("Aspirin Box", new CurrencyValue(9.45), "", 25);
+        HeadachePillsBox headachePillsBox = new HeadachePillsBox("Aspirin Box", new CurrencyValue(9.45), "Aspirin", 25);
 
         Assert.assertEquals(new CurrencyValue(0), headachePillsBox.getTaxesAmount());
         Assert.assertEquals(new CurrencyValue(9.45), headachePillsBox.getTaxedPrice());
@@ -56,8 +56,8 @@ public class ItemsTest {
 
         Perfume perfume = new Perfume("Chanel N. 5", new CurrencyValue(29.9), "Chanel");
 
-        Assert.assertEquals(new CurrencyValue(2.99), perfume.getTaxesAmount());
-        Assert.assertEquals(new CurrencyValue(32.89), perfume.getTaxedPrice());
+        Assert.assertEquals(new CurrencyValue(3.00), perfume.getTaxesAmount());
+        Assert.assertEquals(new CurrencyValue(32.90), perfume.getTaxedPrice());
     }
 
     @Test

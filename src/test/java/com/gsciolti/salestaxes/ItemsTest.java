@@ -8,6 +8,7 @@ import com.gsciolti.salestaxes.model.item.Track;
 import com.gsciolti.salestaxes.model.item.food.ChocolateBar;
 import com.gsciolti.salestaxes.model.item.food.ChocolatesBox;
 import com.gsciolti.salestaxes.model.item.medicalproduct.HeadachePillsBox;
+import com.gsciolti.salestaxes.model.tax.BasicSalesTax;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -67,5 +68,30 @@ public class ItemsTest {
 
         Assert.assertEquals(new CurrencyValue(2.1), cd.getTaxesAmount());
         Assert.assertEquals(new CurrencyValue(23.09), cd.getTaxedPrice());
+    }
+
+    @Test
+    public void testTaxAppliedTwice() {
+
+        MusicCD cd = new MusicCD("Recovery", new CurrencyValue(20.99), "Eminem", new ArrayList<Track>());
+
+        cd.addTax(new BasicSalesTax());
+
+        /*
+         * A tax can only be applied once
+         */
+        Assert.assertEquals(new CurrencyValue(2.1), cd.getTaxesAmount());
+        Assert.assertEquals(new CurrencyValue(23.09), cd.getTaxedPrice());
+    }
+
+    @Test
+    public void testRemoveTax() {
+
+        MusicCD cd = new MusicCD("Recovery", new CurrencyValue(20.99), "Eminem", new ArrayList<Track>());
+
+        cd.removeTax(new BasicSalesTax());
+
+        Assert.assertEquals(new CurrencyValue(0), cd.getTaxesAmount());
+        Assert.assertEquals(new CurrencyValue(20.99), cd.getTaxedPrice());
     }
 }

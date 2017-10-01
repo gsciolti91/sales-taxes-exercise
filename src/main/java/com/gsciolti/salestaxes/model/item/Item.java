@@ -75,6 +75,12 @@ public abstract class Item {
         getTaxes().add(salesTax);
     }
 
+    public void removeTax(SalesTax salesTax) {
+        if (getTaxes() != null) {
+            getTaxes().remove(salesTax);
+        }
+    }
+
     public boolean isImported() {
         return imported;
     }

@@ -26,4 +26,14 @@ public abstract class SalesTax {
 
         return new CurrencyValue(rounded);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj.getClass().getCanonicalName().equals(getClass().getCanonicalName());
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().getCanonicalName().hashCode();
+    }
 }

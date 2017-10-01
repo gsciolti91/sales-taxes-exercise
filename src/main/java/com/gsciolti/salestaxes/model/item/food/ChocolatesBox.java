@@ -18,4 +18,9 @@ public class ChocolatesBox extends Food {
     public void setSize(int size) {
         this.size = size;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%sbox of chocolates: \"%s\"", isImported()? "imported ": "", getName());
+    }
 }

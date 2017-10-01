@@ -18,4 +18,9 @@ public class Perfume extends TaxedItem {
     public void setBrand(String brand) {
         this.brand = brand;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%sbottle of perfume: \"%s\"", isImported()? "imported ": "", getName());
+    }
 }

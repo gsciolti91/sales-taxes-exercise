@@ -31,4 +31,9 @@ public class MusicCD extends TaxedItem {
     public void setTracks(List<Track> tracks) {
         this.tracks = tracks;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%smusic CD: \"%s\"", isImported()? "imported ": "", getName());
+    }
 }

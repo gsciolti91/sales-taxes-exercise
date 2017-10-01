@@ -18,4 +18,9 @@ public class Book extends Item {
     public String getAuthor() {
         return author;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%sbook: \"%s\"", isImported()? "imported ": "", getName());
+    }
 }

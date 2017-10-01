@@ -18,4 +18,9 @@ public class ChocolateBar extends Food {
     public void setWeight(float weight) {
         this.weight = weight;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%schocolate bar: \"%s\"", isImported()? "imported ": "", getName());
+    }
 }

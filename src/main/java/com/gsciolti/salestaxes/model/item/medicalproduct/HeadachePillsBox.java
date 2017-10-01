@@ -29,4 +29,9 @@ public class HeadachePillsBox extends MedicalProduct {
     public void setSize(int size) {
         this.size = size;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%sbox of headache pills: \"%s\"", isImported()? "imported ": "", getName());
+    }
 }

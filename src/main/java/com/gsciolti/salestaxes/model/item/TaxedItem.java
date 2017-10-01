@@ -1,5 +1,6 @@
 package com.gsciolti.salestaxes.model.item;
 
+import com.gsciolti.salestaxes.model.CurrencyValue;
 import com.gsciolti.salestaxes.model.tax.BasicSalesTax;
 
 /**
@@ -7,7 +8,7 @@ import com.gsciolti.salestaxes.model.tax.BasicSalesTax;
  */
 public abstract class TaxedItem extends Item {
 
-    public TaxedItem(String name, float price) {
+    public TaxedItem(String name, CurrencyValue price) {
         super(name, price);
         addTax(new BasicSalesTax());
     }

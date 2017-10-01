@@ -5,8 +5,9 @@ import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-    TaxTest.class,
-    ItemsTest.class
+    CurrencyValueTest.class,
+    ItemsTest.class,
+    ImportedItemsTest.class
 })
 public class TestSuite {
 }

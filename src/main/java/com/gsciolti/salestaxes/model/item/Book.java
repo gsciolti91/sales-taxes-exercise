@@ -1,10 +1,12 @@
 package com.gsciolti.salestaxes.model.item;
 
+import com.gsciolti.salestaxes.model.CurrencyValue;
+
 public class Book extends Item {
 
     private String author;
 
-    public Book(String name, String author, float price) {
+    public Book(String name, CurrencyValue price, String author) {
         super(name, price);
         setAuthor(author);
     }

@@ -1,5 +1,6 @@
 package com.gsciolti.salestaxes.model.item;
 
+import com.gsciolti.salestaxes.model.CurrencyValue;
 import com.gsciolti.salestaxes.model.tax.SalesTax;
 
 import java.util.HashSet;
@@ -12,11 +13,11 @@ public abstract class Item {
 
     private String name;
 
-    private float price;
+    private CurrencyValue price;
 
     private Set<SalesTax> taxes;
 
-    public Item(String name, float price) {
+    public Item(String name, CurrencyValue price) {
         setName(name);
         setPrice(price);
     }
@@ -33,26 +34,39 @@ public abstract class Item {
         this.name = name;
     }
 
-    public float getPrice() {
+    public CurrencyValue getPrice() {
         return price;
     }
 
-    public float getTaxedPrice() {
+    public CurrencyValue getTaxesAmount() {
+
+        CurrencyValue taxesAmount = new CurrencyValue(0);
+
+        if (getTaxes() != null) {
+            for (SalesTax tax : getTaxes()) {
+                taxesAmount = taxesAmount.add(tax.getTaxOn(this));
+            }
+        }
+
+        return taxesAmount;
+    }
+
+    public CurrencyValue getTaxedPrice() {
 
         if (getTaxes() == null || getTaxes().isEmpty()) {
             return getPrice();
         }
 
-        float taxedPrice = 0.0f;
+        CurrencyValue taxedPrice = new CurrencyValue(0.0);
 
         for (SalesTax tax : getTaxes()) {
-            taxedPrice+= tax.applyTo(this);
+            taxedPrice = taxedPrice.add(tax.applyTo(this));
         }
 
         return taxedPrice;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(CurrencyValue price) {
         this.price = price;
     }
 

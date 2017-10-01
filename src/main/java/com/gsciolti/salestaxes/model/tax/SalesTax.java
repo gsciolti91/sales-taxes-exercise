@@ -6,6 +6,9 @@ import com.gsciolti.salestaxes.model.item.Item;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+/**
+ * A generic sales tax that can be applied to an {@link Item}
+ */
 public abstract class SalesTax {
 
     public static final BigDecimal ROUNDING = BigDecimal.valueOf(.05);

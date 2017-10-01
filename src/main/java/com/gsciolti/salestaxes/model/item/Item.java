@@ -7,6 +7,9 @@ import com.gsciolti.salestaxes.model.tax.SalesTax;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * A generic item that can be purchased
+ */
 public abstract class Item {
 
     private String name;

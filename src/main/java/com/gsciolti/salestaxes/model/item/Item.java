@@ -1,15 +1,13 @@
 package com.gsciolti.salestaxes.model.item;
 
 import com.gsciolti.salestaxes.model.CurrencyValue;
+import com.gsciolti.salestaxes.model.tax.ImportSalesTax;
 import com.gsciolti.salestaxes.model.tax.SalesTax;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
 
 public abstract class Item {
-
-    private final String id = UUID.randomUUID().toString();
 
     private String name;
 
@@ -17,13 +15,12 @@ public abstract class Item {
 
     private Set<SalesTax> taxes;
 
+    private boolean imported;
+
     public Item(String name, CurrencyValue price) {
         setName(name);
         setPrice(price);
-    }
-
-    public String getId() {
-        return id;
+        setImported(false);
     }
 
     public String getName() {
@@ -52,18 +49,7 @@ public abstract class Item {
     }
 
     public CurrencyValue getTaxedPrice() {
-
-        if (getTaxes() == null || getTaxes().isEmpty()) {
-            return getPrice();
-        }
-
-        CurrencyValue taxedPrice = new CurrencyValue(0.0);
-
-        for (SalesTax tax : getTaxes()) {
-            taxedPrice = taxedPrice.add(tax.applyTo(this));
-        }
-
-        return taxedPrice;
+        return getPrice().add(getTaxesAmount());
     }
 
     public void setPrice(CurrencyValue price) {
@@ -86,14 +72,15 @@ public abstract class Item {
         getTaxes().add(salesTax);
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (!(obj instanceof Item)) {
-            return false;
+    public boolean isImported() {
+        return imported;
+    }
+
+    public void setImported(boolean imported) {
+        this.imported = imported;
+
+        if (imported) {
+            addTax(new ImportSalesTax());
         }
-
-        Item item = (Item)obj;
-
-        return this == item || getId().equals(item.getId());
     }
 }
